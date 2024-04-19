@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 import requests
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 app.secret_key = 'your_secret_key'  # Set a secret key for session management
 NEWS_API_URL = 'http://scaleable.eba-hk2jstsk.us-east-1.elasticbeanstalk.com/news'
 
