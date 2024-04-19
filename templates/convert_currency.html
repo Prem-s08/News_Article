@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+</head>
+<body>
+    <script src="{{ url_for('static', filename='convert.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <h1>Currency Converter</h1>
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" name="amount" required><br><br>
+        
+        <label for="from_currency">From Currency:</label>
+        <input type="text" id="from_currency" name="from_currency" required><br><br>
+        
+        <label for="to_currency">To Currency:</label>
+        <input type="text" id="to_currency" name="to_currency" required><br><br>
+
+        <button class="button-57" role="button" onclick="convertCurrency()">Convert<span>Currency</span></button>
+                        <div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBC News - Top Headlines</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head> 
+<body>
+<div class="container">
+    <h1 class="text-center mb-4">BBC News - Top Headlines</h1>
+    <a href="/convert_currency" class="btn btn-primary">Convert Currency</a>
+    <div class="row">
+        {% for article in news %}
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{ article.urlToImage }}" class="card-img-top" alt="Image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <p class="card-text">{{ article.description }}</p>
+                </div>
+                <div class="card-footer">
+                    <span class="source">BBC News</span>
+                    <a href="{{ article.url }}" class="btn btn-bbc float-right" target="_blank">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="container">
+    <h1>World Information</h1>
+    <label for="country">Enter a country name:</label>
+    <input type="text" id="country" placeholder="Enter country name">
+    <button onclick="getCountryInfo()"><i class="fas fa-search"></i> Get Information</button> <!-- Add search icon -->
+    <div id="result"></div>
+</div>
+<script src="{{ url_for('static', filename='worldinfo.js') }}"></script>
+</body>
+</html>
